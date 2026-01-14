@@ -1,176 +1,168 @@
-🎵 Vocals Remover (Vocal Separator Pro)
+# 🎵 Vocals Remover (Vocal Separator Pro)
 
-A professional desktop application for separating vocals and instrumental tracks from audio files using state-of-the-art deep learning models (Demucs). Built with PyQt6 for a modern GUI and PyTorch for high‑quality audio source separation.
+A professional desktop application for separating **vocals and instrumental tracks** from audio files using state-of-the-art deep learning models (Demucs). Built with **PyQt6** for a modern GUI and **PyTorch** for high‑quality audio source separation.
 
-📌 Project Overview
+---
 
-Vocals Remover is a Python-based desktop application that allows users to upload an audio file and automatically split it into:
+## 📌 Project Overview
 
-Vocals
+**Vocals Remover** is a Python-based desktop application that allows users to upload an audio file and automatically split it into:
 
-Individual instrumental stems (drums, bass, etc.)
+* Vocals
+* Individual instrumental stems (drums, bass, etc.)
+* A combined instrumental track
 
-A combined instrumental track
+The application is designed for **music producers, students, content creators, and developers** who need an easy-to-use yet powerful vocal separation tool.
 
-The application is designed for music producers, students, content creators, and developers who need an easy-to-use yet powerful vocal separation tool.
+---
 
-✨ Key Features
+## ✨ Key Features
 
-🎧 High-quality vocal and instrumental separation
+* 🎧 High-quality vocal and instrumental separation
+* 🖥️ Modern dark-themed GUI (PyQt6)
+* ⚡ Multi-threaded processing (non-blocking UI)
+* 🎛️ Multiple Demucs models support
+* 📂 Supports multiple audio formats (MP3, WAV, FLAC, M4A, OGG)
+* 🧠 Automatic resampling and stereo handling
+* 📜 Real-time processing logs
+* 📁 Custom output directory support
 
-🖥️ Modern dark-themed GUI (PyQt6)
+---
 
-⚡ Multi-threaded processing (non-blocking UI)
+## 🧰 Tech Stack
 
-🎛️ Multiple Demucs models support
+### Frontend (GUI)
 
-📂 Supports multiple audio formats (MP3, WAV, FLAC, M4A, OGG)
+* **PyQt6** – Desktop user interface
+* **Qt Threads (QThread)** – Background processing
 
-🧠 Automatic resampling and stereo handling
+### Backend (Audio Processing)
 
-📜 Real-time processing logs
+* **Python 3.9+**
+* **PyTorch** – Deep learning framework
+* **Demucs** – Music source separation model
+* **Torchaudio** – Audio loading & saving
+* **NumPy** – Audio data manipulation
+* **SoundFile / PyDub** – Fallback audio loaders
 
-📁 Custom output directory support
+---
 
-🧰 Tech Stack
+## ⚙️ Setup and Installation
 
-Frontend (GUI)
+### 1️⃣ Clone the Repository
 
-PyQt6 – Desktop user interface
-
-Qt Threads (QThread) – Background processing
-
-Backend (Audio Processing)
-
-Python 3.9+
-
-PyTorch – Deep learning framework
-
-Demucs – Music source separation model
-
-Torchaudio – Audio loading & saving
-
-NumPy – Audio data manipulation
-
-SoundFile / PyDub – Fallback audio loaders
-
-⚙️ Setup and Installation
-
-1️⃣ Clone the Repository
-
+```bash
 git clone https://github.com/s-saqlain/Vocals-Remover.git
 cd Vocals-Remover
+```
 
-2️⃣ Create Virtual Environment (Recommended)
+### 2️⃣ Create Virtual Environment (Recommended)
 
+```bash
 python -m venv venv
 source venv/Scripts/activate   # Windows (Git Bash)
+```
 
-3️⃣ Install Dependencies
+### 3️⃣ Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-⚠️ Note: For GPU acceleration, ensure CUDA is installed and compatible with your PyTorch version.
+> ⚠️ **Note:** For GPU acceleration, ensure CUDA is installed and compatible with your PyTorch version.
 
-▶️ Usage Instructions
+---
 
-Run the application:
+## ▶️ Usage Instructions
 
+1. Run the application:
+
+```bash
 python main.py
+```
 
-Click Select Audio File and choose an audio file
+2. Click **Select Audio File** and choose an audio file
+3. Select a **Demucs model**
+4. Choose output directory (optional)
+5. Click **Separate Audio**
+6. Wait for processing to complete
+7. Access separated files in the output folder
 
-Select a Demucs model
+---
 
-Choose output directory (optional)
-
-Click Separate Audio
-
-Wait for processing to complete
-
-Access separated files in the output folder
-
-🔌 API Endpoints
+## 🔌 API Endpoints
 
 ❌ Not applicable
 
-This project is a standalone desktop application and does not expose REST or HTTP APIs.
+This project is a **standalone desktop application** and does not expose REST or HTTP APIs.
 
-🎨 Frontend Overview
+---
 
-Built using PyQt6
+## 🎨 Frontend Overview
 
-Dark modern UI for professional look
+* Built using **PyQt6**
+* Dark modern UI for professional look
+* Components include:
 
-Components include:
+  * File selector
+  * Model selector
+  * Progress indicator
+  * Real-time logs
+  * Action buttons
 
-File selector
+The UI remains responsive due to background processing using `QThread`.
 
-Model selector
+---
 
-Progress indicator
+## 🧠 Backend Overview
 
-Real-time logs
+* Uses **Demucs pretrained models** for audio separation
+* Automatically detects CPU/GPU
+* Handles:
 
-Action buttons
-
-The UI remains responsive due to background processing using QThread.
-
-🧠 Backend Overview
-
-Uses Demucs pretrained models for audio separation
-
-Automatically detects CPU/GPU
-
-Handles:
-
-Audio loading
-
-Resampling
-
-Stereo normalization
-
-Source separation
-
-File export
+  * Audio loading
+  * Resampling
+  * Stereo normalization
+  * Source separation
+  * File export
 
 Main backend logic is implemented inside:
 
-SeperationThread class
+* `SeperationThread` class
 
-🚀 Future Improvements
+---
 
-🎚️ Waveform visualization
+## 🚀 Future Improvements
 
-🎛️ Model parameter tuning
+* 🎚️ Waveform visualization
+* 🎛️ Model parameter tuning
+* 📦 Export stems in ZIP format
+* 🌐 Web version (Flask / FastAPI)
+* 🧩 Plugin support (VST)
+* ⚡ Progress percentage tracking
+* 🎼 Batch audio processing
 
-📦 Export stems in ZIP format
+---
 
-🌐 Web version (Flask / FastAPI)
+## 📄 License
 
-🧩 Plugin support (VST)
-
-⚡ Progress percentage tracking
-
-🎼 Batch audio processing
-
-📄 License
-
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
 
 You are free to:
 
-Use
-
-Modify
-
-Distribute
+* Use
+* Modify
+* Distribute
 
 With proper attribution.
 
-👤 Author
+---
 
-SaqlainGitHub: https://github.com/s-saqlain
+## 👤 Author
 
-⭐ If you like this project, don’t forget to star the repository!
+**Saqlain**
+GitHub: [https://github.com/s-saqlain](https://github.com/s-saqlain)
 
+---
+
+⭐ If you like this project, don’t forget to **star the repository**!
